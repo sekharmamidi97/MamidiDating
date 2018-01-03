@@ -1,0 +1,20 @@
+﻿@model MamidiDating.Models.MessageViewModel
+@{
+    ViewBag.Title = "MessageSent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 id="messagesenttext">Your Message was Sent!</h1>
+
+<div><img id="messagesent" src="~/Content/email-1975010_640.png" alt="Your Message was Sent" /></div>
+<div class="pixabay"><b>Image Courtesy of</b> <a href="https://pixabay.com"><b>Pixabay</b></a></div>
+<hr />
+
+<p>
+    <b>@Html.ActionLink("Back to Message", "Message", "Message")</b>
+</p>
+
+<p>
+    <b>@Html.ActionLink("Back to Home", "Index", "Home")</b>
+</p>
+

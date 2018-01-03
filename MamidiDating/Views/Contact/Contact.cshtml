@@ -1,0 +1,81 @@
+﻿@model MamidiDating.Models.ContactViewModel
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Contact Page</h2>
+<text class="contact">All fields are required.</text><br />
+<text class="contact">If you choose other, please specify your reason.</text>
+<hr />
+
+@using (Html.BeginForm("Contact", "Contact", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.FirstName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(c => c.FirstName, new { placeholder = "First Name", @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.LastName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(c => c.LastName, new { placeholder = "Last Name", @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Username, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(c => c.Username, new { placeholder = "User Name", @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Username, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.EmailAddress, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(c => c.EmailAddress, new { placeholder = "Email Address", @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.EmailAddress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.ContactReason, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(c => c.ContactReason, new List<SelectListItem>
+                        { new SelectListItem {Text = "Website", Value = "Website" },
+                          new SelectListItem {Text = "Support", Value = "Support"},
+                          new SelectListItem {Text = "Other", Value = "Other" },
+                          new SelectListItem {Text = "Website & Support", Value = "Website And Support" },
+                          new SelectListItem {Text = "Website & Other", Value = "Website And Other" },
+                          new SelectListItem {Text = "Support & Other", Value = "Support And Other" },
+                          new SelectListItem {Text = "Website, Support, & Other", Value = "Website, Support, And Other" } },
+                          "Select Reason")<br />
+            @Html.ValidationMessageFor(c => c.ContactReason, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.OtherSpecified, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextAreaFor(c => c.OtherSpecified, new { placeholder = "Other", @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.OtherSpecified, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Message, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextAreaFor(c => c.Message, new { placeholder = "Message", @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Message, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Contact" />
+        </div>
+    </div>
+    <hr />
+    <p>
+        <b>@Html.ActionLink("Back to Home", "Index", "Home")</b>
+    </p>
+}
+

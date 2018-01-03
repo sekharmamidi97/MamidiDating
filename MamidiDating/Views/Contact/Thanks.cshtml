@@ -1,0 +1,19 @@
+﻿@model MamidiDating.Models.ContactViewModel
+@{
+    ViewBag.Title = "Thanks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 id="thankstext">Thanks for Contacting!</h1>
+<div><img id="thanks" src="~/Content/thanks-1183287_640.png" alt="Thanks for contacting me" /></div>
+<div class="pixabay"><b>Image Courtesy of</b> <a href="https://pixabay.com"><b>Pixabay</b></a></div>
+<hr />
+
+<p>
+    <b>@Html.ActionLink("Back to Contact", "Contact", "Contact")</b>
+</p>
+
+<p>
+    <b>@Html.ActionLink("Back to Home", "Index", "Home")</b>
+</p>
+

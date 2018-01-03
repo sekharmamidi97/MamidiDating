@@ -1,0 +1,47 @@
+﻿@model MamidiDating.Models.MessageViewModel
+@{
+    ViewBag.Title = "Message";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Send A Message</h1>
+<text id="message">All fields are required.</text><br />
+<hr />
+@using (Html.BeginForm("Message", "Message", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.ToUsername, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.ToUsername, new { placeholder = "To User Name", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ToUsername, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.Subject, new { placeholder = "Subject", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Message, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextAreaFor(m => m.Message, new { placeholder = "Message", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.FromUsername, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(m => m.FromUsername, new { placeholder = "From User Name", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FromUsername, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-8">
+            <input type="submit" class="btn btn-default" value="Send Message" />
+        </div>
+    </div>
+    <hr />
+}
+

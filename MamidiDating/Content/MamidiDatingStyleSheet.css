@@ -1,0 +1,65 @@
+﻿/*Home Page*/
+
+/*Registration Page*/
+
+.registration {
+    color: red;
+    font-weight: bold;
+}
+
+/*Login Page*/
+
+#login {
+    color: red;
+    font-weight: bold;
+}
+
+/*Forgot Password Page*/
+
+#forgotpassword {
+    color: red;
+    font-weight: bold;
+}
+
+/*Contact Page*/
+
+.contact {
+    color: red;
+    font-weight: bold;
+}
+/*Thanks Page*/
+
+#thankstext {
+    text-align: center;
+}
+
+#thanks {
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+}
+
+.pixabay {
+    text-align: center;
+}
+
+/*Message Page*/
+
+#message {
+    color: red;
+    font-weight: bold;
+
+}
+
+/*Message Sent Page*/
+
+#messagesenttext {
+    text-align:center;
+}
+
+#messagesent {
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+
+}

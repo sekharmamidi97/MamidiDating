@@ -1,0 +1,152 @@
+﻿@model MamidiDating.Models.RegistrationViewModel
+@using Recaptcha.Web.Mvc;
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registration Page</h2>
+
+<text class="registration">You must be at least 18 years old to use this site.</text><br />
+<text class="registration">Your password must contain least 8 characters including an upper-case letter, a lower-case letter, a number, and a symbol.</text><br />
+<text class="registration">In order to protect members and to participate in this site, you <strong><em>MUST</em></strong> agree to a background check.</text><br />
+<text class="registration">You must enter a 4 digit year.</text><br />
+<text class="registration">You must fill out the message in the Recaptcha field.</text>
+<hr />
+
+@using (Html.BeginForm("Registration", "Registration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(r => r.FirstName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(r => r.FirstName, new { placeholder = "First Name", @class = "form-control" })
+            @Html.ValidationMessageFor(r => r.FirstName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.LastName, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(r => r.LastName, new { placeholder = "Last Name", @class = "form-control" })
+            @Html.ValidationMessageFor(r => r.LastName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Username, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(r => r.Username, new { placeholder = "User Name", @class = "form-control" })
+            @Html.ValidationMessageFor(r => r.Username, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.EmailAddress, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(r => r.EmailAddress, new { placeholder = "Email Address", @class = "form-control" })
+            @Html.ValidationMessageFor(r => r.EmailAddress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(r => r.Password, new { placeholder = "Password", @class = "form-control" })
+            @Html.ValidationMessageFor(r => r.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(r => r.ConfirmPassword, new { placeholder = "Confirm Password", @class = "form-control" })
+            @Html.ValidationMessageFor(r => r.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Month, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(r => r.Month, new List<SelectListItem>
+       {
+           new SelectListItem {Text="January", Value="January" },
+           new SelectListItem {Text="February", Value="February" },
+           new SelectListItem {Text="March", Value = "March" },
+           new SelectListItem {Text="April", Value = "April" },
+           new SelectListItem {Text="May", Value="May" },
+           new SelectListItem {Text="June", Value ="June"},
+           new SelectListItem {Text="July", Value="July" },
+           new SelectListItem {Text="August", Value="August" },
+           new SelectListItem {Text="September", Value = "September" },
+           new SelectListItem {Text="October", Value="October" },
+           new SelectListItem {Text="November", Value="November" },
+           new SelectListItem {Text="December", Value="December" } },
+           "Select Birth Month")<br />
+            @Html.ValidationMessageFor(r => r.Month, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Day, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(r => r.Day, new List<SelectListItem>
+       {
+           new SelectListItem {Text="1", Value = "1" },
+           new SelectListItem {Text="2", Value = "2" },
+           new SelectListItem {Text="3", Value = "3" },
+           new SelectListItem {Text="4", Value = "4" },
+           new SelectListItem {Text="5", Value ="5" },
+           new SelectListItem {Text="6", Value ="6"},
+           new SelectListItem {Text="7", Value="7" },
+           new SelectListItem {Text="8", Value="8" },
+           new SelectListItem {Text="9", Value = "9" },
+           new SelectListItem {Text="10", Value="10" },
+           new SelectListItem {Text="11", Value="11" },
+           new SelectListItem {Text="12", Value="12" },
+           new SelectListItem {Text="13", Value="13" },
+           new SelectListItem {Text="14", Value="14" },
+           new SelectListItem {Text="15", Value = "15" },
+           new SelectListItem {Text="16", Value = "16" },
+           new SelectListItem {Text="17", Value="17" },
+           new SelectListItem {Text="18", Value ="18"},
+           new SelectListItem {Text="19", Value="19" },
+           new SelectListItem {Text="20", Value="20" },
+           new SelectListItem {Text="21", Value = "21" },
+           new SelectListItem {Text="22", Value="22" },
+           new SelectListItem {Text="23", Value="23" },
+           new SelectListItem {Text="24", Value="24" },
+           new SelectListItem {Text="25", Value="25" },
+           new SelectListItem {Text="26", Value="26" },
+           new SelectListItem {Text="27", Value = "27" },
+           new SelectListItem {Text="28", Value = "28" },
+           new SelectListItem {Text="29", Value="29" },
+           new SelectListItem {Text="30", Value ="30"},
+           new SelectListItem {Text="31", Value="31" } },
+           "Select Day")<br />
+            @Html.ValidationMessageFor(r => r.Day, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Year, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(r => r.Year, new { placeholder = "Year", @class = "form-control" })
+            @Html.ValidationMessageFor(r => r.Year, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Age, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(r => r.Age, new { placeholder = "Age", @class = "form-control" })
+            @Html.ValidationMessageFor(r => r.Age, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.BackgroundCheck, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.CheckBoxFor(r => r.IsBackgroundCheck)
+            @Html.LabelFor(r => r.IsBackgroundCheck, "Yes")<br />
+            @Html.CheckBoxFor(r => r.IsBackgroundCheck)
+            @Html.LabelFor(r => r.IsBackgroundCheck, "No")<br />
+            @Html.ValidationMessageFor(r => r.BackgroundCheck, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-8">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}
+
