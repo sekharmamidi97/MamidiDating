@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace MamidiDating.DAL
 {
-    public interface IMessageDAL
+    public interface ILoginDAL
     {
-        bool AddMessageInfo(MessageViewModel message);
+        bool RegisterUser(LoginViewModel login);
+        LoginViewModel GetUsername(string username);
     }
 }

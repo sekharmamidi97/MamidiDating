@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace MamidiDating.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : MamidiDatingController
     {
         // GET: Login
         public ActionResult Login()

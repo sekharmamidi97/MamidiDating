@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MamidiDating.Controllers
 {
-    public class UserProfileController : Controller
+    public class UserProfileController : MamidiDatingController
     {
         // GET: UserProfile
         public ActionResult Index()

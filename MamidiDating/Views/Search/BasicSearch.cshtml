@@ -1,8 +1,550 @@
-﻿
+﻿@model MamidiDating.Models.BasicSearchViewModel
 @{
     ViewBag.Title = "BasicSearch";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BasicSearch</h2>
+<h1>Basic Search</h1>
+<text id="basic">Select the characteristics you are seeking</text>
+<hr />
+
+@using (Html.BeginForm("BasicSearch", "Search", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    //Gender
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.Gender, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.Gender, new List<SelectListItem>
+                        { new SelectListItem {Text = "Male", Value = "Male" },
+                          new SelectListItem {Text = "Female", Value = "Female"},
+                          new SelectListItem {Text = "Transgender Male", Value = "Transgender Female" },
+                          new SelectListItem {Text = "Transgender Female", Value = "Transgender Female" },
+                          new SelectListItem {Text = "All Genders", Value = "All Genders" }},
+     "Select Gender(s)")
+        </div>
+    </div>
+
+    //Age
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.Age, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(bs => bs.Age, new { placeholder = "Age", @class = "form-control" })
+        </div>
+    </div>
+
+    //Age Range
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.AgeRange, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.AgeRange, new List<SelectListItem>
+                        { new SelectListItem {Text = "18-25", Value = "18-25" },
+                          new SelectListItem {Text = "26-33", Value = "26-33"},
+                          new SelectListItem {Text = "34-41", Value = "34-41" },
+                          new SelectListItem {Text = "42-49", Value = "42-49" },
+                          new SelectListItem {Text = "50-59", Value = "50-59" },
+                          new SelectListItem {Text = "60-69", Value = "60-69" },
+                          new SelectListItem {Text = "70 and Older", Value = "70 and Older"},
+                          new SelectListItem {Text = "All Age Ranges", Value = "All Age Ranges" }},
+     "Select Age Range(s)")
+        </div>
+    </div>
+
+    //Relationship Type
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.RelationshipType, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.RelationshipType, new List<SelectListItem>
+                        { new SelectListItem {Text = "Friends/Penpals", Value = "Friends/Penpals" },
+                          new SelectListItem {Text = "Friends With Benefits", Value = "Friends With Benefits" },
+                          new SelectListItem {Text = "Casual Dating", Value = "Casual Dating" },
+                          new SelectListItem {Text = "Casual Sex", Value = "Casual Sex" },
+                          new SelectListItem {Text = "Short Term Relationship", Value = "Short Term Relationship" },
+                          new SelectListItem {Text = "Long Term Relationship", Value = "Long Term Relationship"},
+                          new SelectListItem {Text = "Men Searching for Men", Value = "Men Searching for Men" },
+                          new SelectListItem {Text = "Women Searching for Women", Value = "Women Searching for Women" },
+                          new SelectListItem {Text = "Transgender Man Searching for Transgender Man", Value = "Transgender Searching for Transgender Man" },
+                          new SelectListItem {Text = "Transgender Man Searching for Transgender Woman", Value = "Transgender Man Searching for Transgender Woman" },
+                          new SelectListItem {Text = "Transgender Woman Searching for Transgender Woman", Value = "Transgender Woman Searching for Transgender Woman" },
+                          new SelectListItem {Text = "Transgender Man Searching for a Non-Transgender Man", Value = "Transgender Man Searching for a Non-Transgender Man" },
+                          new SelectListItem {Text = "Transgender Man Searching for a Non-Transgender Woman", Value = "Transgender Man Searching for a Non-Transgender Woman" },
+                          new SelectListItem {Text = "Transgender Woman Searching for a Non-Transgender Man", Value = "Transgender Woman Searching for a Non-Transgender Man" },
+                          new SelectListItem {Text = "Transgender Woman Searching for a Non-Transgender Woman", Value = "Transgender Woman Searching for a Non-Transgender Woman" },
+                          new SelectListItem {Text = "Non-Transgender Man Searching for a Transgender Man", Value = "Non-Transgender Man Searching for a Transgender Man" },
+                          new SelectListItem {Text = "Non-Transgender Man Searching for a Transgender Woman", Value = "Non-Transgender Man Searching for a Transgender Woman" },
+                          new SelectListItem {Text = "Non-Transgender Woman Searching for a Transgender Man", Value = "Non-Transgender Woman Searching for a Transgender Man" },
+                          new SelectListItem {Text = "Non-Transgender Woman Searching for a Transgender Woman", Value = "Non-Transgender Woman Searching for a Transgender Woman" } },
+                    "Select Relationship Type(s)")
+        </div>
+    </div>
+
+    //Relationship Requirements
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.RelationshipRequirements, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.RelationshipRequirements, new List<SelectListItem>
+                        { new SelectListItem {Text = "Mutual Attraction", Value = "Mutual Attraction" },
+                          new SelectListItem {Text = "Affectionate", Value = "Affectionate"},
+                          new SelectListItem {Text = "Genuine and Mutual Interest", Value = "Genuine and Mutual Interest" },
+                          new SelectListItem {Text = "Faithful", Value = "Faithful" },
+                          new SelectListItem {Text = "Honest", Value = "Honest" },
+                          new SelectListItem {Text = "Trustworthy", Value = "Trustworthy" },
+                          new SelectListItem {Text = "Loyal", Value = "Loyal"},
+                          new SelectListItem {Text = "Caring", Value = "Caring" },
+                          new SelectListItem {Text = "Compassionate", Value = "Compassionate" },
+                          new SelectListItem {Text = "Romantic", Value = "Romantic" },
+                          new SelectListItem {Text = "Passionate", Value = "Passionate" },
+                          new SelectListItem {Text = "Ambitious", Value = "Ambitious"},
+                          new SelectListItem {Text = "Goal Oriented", Value = "Goal Oriented" },
+                          new SelectListItem {Text = "Generous", Value = "Generous" },
+                          new SelectListItem {Text = "Kind", Value = "Kind" },
+                          new SelectListItem {Text = "Likes Books/Reading", Value = "Likes Books/Reading" },
+                          new SelectListItem {Text = "Values Education", Value = "Values Education" },
+                          new SelectListItem {Text = "Educated", Value = "Educated" },
+                          new SelectListItem {Text = "Have Mutual Interests", Value = "Have Mutual Interests" },
+                          new SelectListItem {Text = "Has Individual Interests", Value = "Has Individual Interests" },
+                          new SelectListItem {Text = "Employed", Value = "Employed" },
+                          new SelectListItem {Text = "Does Not Have to be Employed", Value = "Does Not Have to be Employed" },
+                          new SelectListItem {Text = "Financially Stable", Value = "Financially Stable"},
+                          new SelectListItem {Text = "Does Not Have to be Financially Stable", Value = "Does Not Have to be Financially Stable" },
+                          new SelectListItem {Text = "Financially Frugal", Value = "Financially Frugal" },
+                          new SelectListItem {Text = "Does Not Have to be Financially Frugal", Value = "Does Not Have to be Financially Frugal" },
+                          new SelectListItem {Text = "Emotionally Stable", Value = "Emotionally Stable" },
+                          new SelectListItem {Text = "Does Not Have to be Emotionally Stable", Value = "Does Not Have to be Emotionally Stable" },
+                          new SelectListItem {Text = "Financially Rich", Value = "Financially Rich" },
+                          new SelectListItem {Text = "Does Not Have to be Financially Rich", Value = "Does Not Have to be Financially Rich"},
+                          new SelectListItem {Text = "Have Children", Value = "Have Children" },
+                          new SelectListItem {Text = "Does Not Have Children", Value = "Not Have Children" },
+                          new SelectListItem {Text = "Want Children", Value = "Want Children" },
+                          new SelectListItem {Text = "Do Not Want Children", Value = "Do Not Want Children" },
+                          new SelectListItem {Text = "Accepts Children", Value = "Accepts Children"},
+                          new SelectListItem {Text = "Does Not Accept Children", Value = "Does Not Accept Children"},
+                          new SelectListItem {Text = "Have Pets", Value = "Have Pets" },
+                          new SelectListItem {Text = "Not Have Pets", Value = "Must Not Have Pets" },
+                          new SelectListItem {Text = "Accepts Pets", Value = "Accepts Pets" },
+                          new SelectListItem {Text = "Be Fair", Value = "Be Fair" },
+                          new SelectListItem {Text = "Not Excessively Critical", Value = "Not Excessively Critical" },
+                          new SelectListItem {Text = "Excessively Critical", Value = "Excessively Critical" },
+                          new SelectListItem {Text = "Able To Handle Conflict In A Healthy Way", Value = "Able To Handle Conflict In A Healthy Way" },
+                          new SelectListItem {Text = "Not Able To Handle Conflict In A Healthy Way", Value = "Not Able To Handle Conflict In A Healthy Way" },
+                          new SelectListItem {Text = "Able To Compromise", Value = "Able To Compromise" },
+                          new SelectListItem {Text = "Being Able To Compromise Is Not Important", Value = "Being Able To Compromise Is Not Important" },
+                          new SelectListItem {Text = "Willing And Able To Express Thoughts And Feelings", Value = "Willing And Able To Express Thoughts And Feelings" },
+                          new SelectListItem {Text = "Does Not Have To Express Thoughts and Feelings", Value = "Does Not Have To Express Thoughts and Feelings" },
+                          new SelectListItem {Text = "Able to Communicate", Value = "Able to Communicate" },
+                          new SelectListItem {Text = "Does Not Have To Communicate", Value = "Does Not Have To Communicate" },
+                          new SelectListItem {Text = "Open-Minded", Value = "Open-Minded"},
+                          new SelectListItem {Text = "Close-Minded", Value = "Close-Minded"},
+                          new SelectListItem {Text = "Does Not Get Angry Easily", Value = "Does Not Get Angry Easily"},
+                          new SelectListItem {Text = "Gets Angry Easily", Value = "Gets Angry Easily"},
+                          new SelectListItem {Text = "Does Not Yell", Value = "Does Not Yell"},
+                          new SelectListItem {Text = "Constantly Yells", Value = "Constantly Yells"},
+                          new SelectListItem {Text = "Encouraging", Value = "Encouraging"},
+                          new SelectListItem {Text = "Discouraging", Value = "Discouraging"},
+                          new SelectListItem {Text = "Same/Similar Race/Ethnicity", Value = "Same/Similar Race/Ethnicity" },
+                          new SelectListItem {Text = "Different Race/Ethnicity Okay", Value = "Different Race/Ethnicity Okay" },
+                          new SelectListItem {Text = "Smoker/Tobacco User", Value = "Smoker/Tobacco User" },
+                          new SelectListItem {Text = "Non-Smoker/Non-Tobacco User", Value = "Non-Smoker/Non-Tobacco User" },
+                          new SelectListItem {Text = "Non-Drug User", Value = "Non-Drug User" },
+                          new SelectListItem {Text = "Drug User", Value = "Drug User" },
+                          new SelectListItem {Text = "Marijuana User/Friendly", Value = "Marijuana User/Friendly" },
+                          new SelectListItem {Text = "Non-Marijuana User", Value = "Non-Marijuana User"},
+                          new SelectListItem {Text = "Non-Alcoholic", Value = "Non-Alcoholic" },
+                          new SelectListItem {Text = "Alcoholic", Value = "Alcoholic" },
+                          new SelectListItem {Text = "Non-Drinker", Value = "Non-Drinker" },
+                          new SelectListItem {Text = "Rare Drinker", Value = "Rare Drinker" },
+                          new SelectListItem {Text = "Social Drinker", Value = "Social Drinker" },
+                          new SelectListItem {Text = "Heavy Drinker", Value = "Heavy Drinker" },
+                          new SelectListItem {Text = "Similar/Same Political Beliefs", Value = "Similar/Same Political Beliefs" },
+                          new SelectListItem {Text = "Different Political Beliefs Okay", Value = "Different Political Beliefs Okay" },
+                          new SelectListItem {Text = "Similar/Same Financial Habits", Value = "Similar/Same Financial Habits"},
+                          new SelectListItem {Text = "Different Financial Habits Okay", Value = "Different Financial Habits Okay" },
+                          new SelectListItem {Text = "Likes Watching Sports", Value = "Likes Watching Sports" },
+                          new SelectListItem {Text = "Does Not Like Watching Sports", Value = "Does Not Like Watching Sports" },
+                          new SelectListItem {Text = "Likes Playing Sports", Value = "Likes Playing Sports" },
+                          new SelectListItem {Text = "Does Not Like Playing Sports", Value = "Does Not Like Playing Sports" },
+                          new SelectListItem {Text = "Likes Watching Television", Value = "Likes Watching Television" },
+                          new SelectListItem {Text = "Does Not Like Watching Television", Value = "Does Not Like Watching Television" },
+                          new SelectListItem {Text = "Likes Watching Movies", Value = "Likes Watching Movies" },
+                          new SelectListItem {Text = "Does Not Like Watching Movies", Value = "Does Not Like Watching Movies" },
+                          new SelectListItem {Text = "Sense of Humor", Value = "Sense of Humor" },
+                          new SelectListItem {Text = "Does Not Have A Sense Of Humor", Value = "Does Not Have A Sense Of Humor" },
+                          new SelectListItem {Text = "Interested in Physical Intimacy", Value = "Interested in Physical Intimacy" },
+                          new SelectListItem {Text = "Not Interested in Physical Intimacy", Value = "Not Interested in Physical Intimacy" },
+                          new SelectListItem {Text = "Nerdy/Geek", Value = "Nerdy/Geek" },
+                          new SelectListItem {Text = "Not Nerdy/Geek", Value = " Not Nerdy/Geek" },
+                          new SelectListItem {Text = "Partier", Value = "Partier" },
+                          new SelectListItem {Text = "Not A Partier", Value = "Not A Partier" },
+                          new SelectListItem {Text = "Thin", Value = "Thin" },
+                          new SelectListItem {Text = "Athletic", Value = "Athletic" },
+                          new SelectListItem {Text = "Average", Value = "Average" },
+                          new SelectListItem {Text = "Curvy", Value = "Curvy" },
+                          new SelectListItem {Text = "Big Beautiful Woman (BBW)", Value = "Big Beautiful Woman (BBW)" },
+                          new SelectListItem {Text = "Super-Sized Big Beautiful Woman (SSBBW)", Value = "Super-Sized Big Beautiful Woman (SSBBW)" },
+                          new SelectListItem {Text = "Heavier Man", Value = "Heavier Man" },
+                          new SelectListItem {Text = "Muscular Man", Value = "Muscular Man" },
+                          new SelectListItem {Text = "Small/Tiny Boobs", Value = "Small/Tiny Boobs" },
+                          new SelectListItem {Text = "Medium/Average Boobs", Value = "Medium/Average Boobs" },
+                          new SelectListItem {Text = "Large Boobs", Value = "Large Boobs" },
+                          new SelectListItem {Text = "Extra Large/Huge/Giant Boobs", Value = "Extra Large/Huge/Giant Boobs" },
+                          new SelectListItem {Text = "Small/Tiny Butt", Value = "Small/Tiny Butt" },
+                          new SelectListItem {Text = "Medium/Average Butt", Value = "Medium/Average Butt" },
+                          new SelectListItem {Text = "Large Butt", Value = "Large Butt" },
+                          new SelectListItem {Text = "Extra Large/Huge/Giant Butt", Value = "Extra Large/Huge/Giant Butt" },
+                          new SelectListItem {Text = "Small/Tiny Penis", Value = "Small/Tiny Penis" },
+                          new SelectListItem {Text = "Medium/Average Penis", Value = "Medium/Average Penis" },
+                          new SelectListItem {Text = "Large Penis", Value = "Large Penis" },
+                          new SelectListItem {Text = "Extra Large/Huge/Giant Penis", Value = "Extra Large/Huge/Giant Penis" },
+                          new SelectListItem {Text = "Tall", Value = "Tall" },
+                          new SelectListItem {Text = "Average Height", Value = "Average Height" },
+                          new SelectListItem {Text = "Short", Value = "Short" },
+                          new SelectListItem {Text = "Same/Similar Height", Value = "Same/Similar Height" } },
+                         "Select Relationship Requirement(s)")
+        </div>
+    </div>
+
+    //Ethnicity
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.Ethnicity, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.Ethnicity, new List<SelectListItem>
+                        { new SelectListItem {Text = "Asian", Value = "Asian" },
+                          new SelectListItem {Text = "African American/Black", Value = "African American/Black"},
+                          new SelectListItem {Text = "Caucasian", Value = "Caucasian" },
+                          new SelectListItem {Text = "East Indian", Value= "East Indian" },
+                          new SelectListItem {Text = "Hispanic/Latino(a)", Value = "Hispanic/Latino(a)" },
+                          new SelectListItem {Text = "Middle Eastern", Value = "Middle Eastern" },
+                          new SelectListItem {Text = "Mixed Ethnicities", Value = "Mixed Ethnicities"},
+                          new SelectListItem {Text = "Native American", Value = "Native American" },
+                          new SelectListItem {Text = "Pacific Islander", Value = "Pacific Islander" },
+                          new SelectListItem {Text = "Other Ethnicity", Value = "Other Ethnicity"},
+                          new SelectListItem {Text = "All Ethnicities", Value = "All Ethnicities"},},
+     "Select Ethnicity Type(s)")
+        </div>
+    </div>
+
+    //Body Type
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.BodyType, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.BodyType, new List<SelectListItem>
+                        { new SelectListItem {Text = "Athletic", Value="Athletic" },
+                          new SelectListItem {Text = "Thin", Value = "Thin"},
+                          new SelectListItem {Text = "Average", Value = "Average" },
+                          new SelectListItem {Text = "Curvy", Value= "Curvy" },
+                          new SelectListItem {Text = "Few Extra Pounds", Value = "Few Extra Pounds" },
+                          new SelectListItem {Text = "Heavier Man", Value= "Heavier Man" },
+                          new SelectListItem {Text = "Muscular Man", Value = "Muscular Man"},
+                          new SelectListItem {Text = "Big Beautiful Woman (BBW)", Value = "Big Beautiful Woman (BBW)" },
+                          new SelectListItem {Text = "Super Sized Big Beautiful Woman (SSBBW)", Value= "Super Sized Big Beautiful Woman (SSBBW)" },
+                          new SelectListItem {Text = "All Body Types", Value = "All Body Types"} },
+     "Select Body Type(s)")
+        </div>
+    </div>
+
+    //Smoking Status
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.SmokingStatus, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.CheckBoxFor(bs => bs.IsSmoker)
+            @Html.LabelFor(bs => bs.IsSmoker, "Smoker")<br />
+            @Html.CheckBoxFor(bs => bs.IsNonSmoker)
+            @Html.LabelFor(bs => bs.IsNonSmoker, "Non-Smoker")<br />
+            @Html.CheckBoxFor(bs => bs.IsSmokerNonSmoker)
+            @Html.LabelFor(bs => bs.IsSmokerNonSmoker, "Both Smoker and Non-Smoker")
+        </div>
+    </div>
+
+    //Illicit Drug User
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.IllicitDrugUser, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.CheckBoxFor(bs=> bs.IsIllicitDrugUser)
+            @Html.LabelFor(bs => bs.IsIllicitDrugUser, "Illicit Drug User")<br />
+            @Html.CheckBoxFor(bs => bs.IsNonIllicitDrugUser)
+            @Html.LabelFor(bs => bs.IsNonIllicitDrugUser, "Non-Illicit Drug User")<br />
+            @Html.CheckBoxFor(bs => bs.IsIllicitNonIllicitDrugUser)
+            @Html.LabelFor(bs => bs.IsIllicitNonIllicitDrugUser, "Both Illicit and Non-Illicit Drug User")
+        </div>
+    </div>
+
+    //Marijuana User
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.MarijuanaUser, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.CheckBoxFor(bs => bs.IsMarijuanaUser)
+            @Html.LabelFor(bs => bs.IsMarijuanaUser, "Marijuana User")<br />
+            @Html.CheckBoxFor(bs => bs.IsNonMarijuanaUser)
+            @Html.LabelFor(bs => bs.IsNonMarijuanaUser, "Non-Marijuana User")<br />
+            @Html.CheckBoxFor(bs => bs.IsMarijuanaNonMarijuanaUser)
+            @Html.LabelFor(bs => bs.IsMarijuanaNonMarijuanaUser, "Both Marijuana and Non-Marijuana User")
+        </div>
+    </div>
+
+    //Drinking Status
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.DrinkingStatus, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.DrinkingStatus, new List<SelectListItem>
+                        { new SelectListItem {Text = "Non-Drinker", Value="Non-Drinker" },
+                          new SelectListItem {Text = "Rare Drinker", Value = "Rare Drinker"},
+                          new SelectListItem {Text = "Social Drinker", Value = "Social Drinker" },
+                          new SelectListItem {Text = "Heavy Drinker", Value= "Heavy Drinker" },
+                          new SelectListItem {Text = "Other", Value = "Other"},
+                          new SelectListItem {Text = "All Drinking Types", Value = "All Drinking Types"},},
+     "Select Drinking Status")
+        </div>
+    </div>
+
+    //Interests
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.Interests, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.Interests, new List<SelectListItem>
+                        { new SelectListItem {Text = "Computers/Technology", Value = "Computers/Technology" },
+                          new SelectListItem {Text = "Cooking", Value = "Cooking"},
+                          new SelectListItem {Text = "Cosplaying", Value = "Cosplaying" },
+                          new SelectListItem {Text = "Dancing", Value = "Dancing" },
+                          new SelectListItem {Text = "Fantasy Sports", Value = "Fantasy Sports" },
+                          new SelectListItem {Text = "Acting (plays, dramas, other)", Value = "Acting (plays, dramas, other)" },
+                          new SelectListItem {Text = "Gaming(tabletop games, role - playing games, board games, video games, card games, other)", Value = "Gaming(tabletop games, role - playing games, board games, video games, card games, other)"},
+                          new SelectListItem {Text = "Ice Skating", Value = "Ice Skating" },
+                          new SelectListItem {Text = "Knitting (crocheting, quilting, other)", Value = "Knitting (crocheting, quilting, other)" },
+                          new SelectListItem {Text = "Lego Building", Value = "Lego Building" },
+                          new SelectListItem {Text = "Painting", Value = "Painting" },
+                          new SelectListItem {Text = "Playing Musical Instruments", Value = "Playing Musical Instruments" },
+                          new SelectListItem {Text = "Pottery", Value = "Pottery" },
+                          new SelectListItem {Text = "Puzzles(crossword, jigsaw, other)", Value = "Puzzles(crossword, jigsaw, other)" },
+                          new SelectListItem {Text = "Reading", Value = "Reading" },
+                          new SelectListItem {Text = "Scrapbooking", Value = "Scrapbooking" },
+                          new SelectListItem {Text = "Singing", Value = "Singing" },
+                          new SelectListItem {Text = "Web Surfing", Value = "Web Surfing" },
+                          new SelectListItem {Text = "Writing (journal, diary, other)", Value = "Writing (journal, diary, other)" },
+                          new SelectListItem {Text = "Working with Electronics", Value = "Working with Electronics" },
+                          new SelectListItem {Text = "Yoga", Value = "Yoga" },
+                          new SelectListItem {Text = "Meditation", Value = "Meditation" },
+                          new SelectListItem {Text = "Watching Television", Value = "Watching Television"},
+                          new SelectListItem {Text = "Watching Sports (live, on television, other)", Value = "Watching Sports (live, on television, other)" },
+                          new SelectListItem {Text = "Watching Movies (in the theater, on television, other)", Value = "Watching Movies (in the theater, on television, other)" },
+                          new SelectListItem {Text = "Camping", Value = "Camping" },
+                          new SelectListItem {Text = "Driving (roadtrips, other)", Value = "Driving (roadtrips, other)" },
+                          new SelectListItem {Text = "Fishing", Value = "Fishing"},
+                          new SelectListItem {Text = "Hiking", Value = "Hiking" },
+                          new SelectListItem {Text = "Backpacking", Value="Backpacking" },
+                          new SelectListItem {Text = "Horseback Riding", Value = "Horseback Riding" },
+                          new SelectListItem {Text = "Hunting", Value = "Hunting" },
+                          new SelectListItem {Text = "Motorcycles (working on, riding, other)", Value = "Motorcycles (working on, riding, other)"},
+                          new SelectListItem {Text = "Biking/Cycling", Value = "Biking/Cycling" },
+                          new SelectListItem {Text = "Automobiles (vintage and nonvintage, working on, collecting, other)", Value = "Automobiles (vintage and nonvintage, working on, collecting, other)" },
+                          new SelectListItem {Text = "Photography", Value = "Photography" },
+                          new SelectListItem {Text = "Rock Climbing", Value = "Rock Climbing" },
+                          new SelectListItem {Text = "Roller Skating", Value = "Roller Skating" },
+                          new SelectListItem {Text = "Running/Jogging", Value = "Running/Jogging" },
+                          new SelectListItem {Text = "Walking", Value = "Walking" },
+                          new SelectListItem {Text = "Shopping", Value = "Shopping" },
+                          new SelectListItem {Text = "Skateboarding", Value = "Skateboarding" },
+                          new SelectListItem {Text = "Skiing", Value = "Skiing" },
+                          new SelectListItem {Text = "Playing Sports(baseball, softball, football, soccer, basketball, hockey, tennis, other)", Value = "Playing Sports(baseball, softball, football, soccer, basketball, hockey, tennis, other)" },
+                          new SelectListItem {Text = "Playing Water Sports (swimming, sailing, rowing, kayaking, other)", Value = "Playing Water Sports (swimming, sailing, rowing, kayaking, other)"},
+                          new SelectListItem {Text = "Action Figure/Doll Collecting", Value = "Action Figure/Doll Collecting" },
+                          new SelectListItem {Text = "Card Collecting (sports, other)", Value = "Card Collecting (sports, other)" },
+                          new SelectListItem {Text = "Coin Collecting", Value = "Coin Collecting" },
+                          new SelectListItem {Text = "Stamp Collecting", Value = "Stamp Collecting" },
+                          new SelectListItem {Text = "Movie Collecting", Value = "Movie Collecting" },
+                          new SelectListItem {Text = "Movie Memorabilia Collecting", Value = "Movie Memorabilia Collecting" },
+                          new SelectListItem {Text = "Video Game Collecting", Value = "Video Game Collecting" },
+                          new SelectListItem {Text = "Comic Book Collecting", Value = "Comic Book Collecting" },
+                          new SelectListItem {Text = "Billiards", Value = "Billiards" },
+                          new SelectListItem {Text = "Bowling", Value = "Bowling" },
+                          new SelectListItem {Text = "Boxing", Value = "Boxing" },
+                          new SelectListItem {Text = "Wrestlng", Value = "Wrestlng"},
+                          new SelectListItem {Text = "Cheerleading", Value = "Cheerleading" },
+                          new SelectListItem {Text = "Gymnastics", Value = "Gymnastics" },
+                          new SelectListItem {Text = "Playing Chess", Value = "Playing Chess" },
+                          new SelectListItem {Text = "Playing Darts", Value = "Playing Darts" },
+                          new SelectListItem {Text = "Martial Arts (karate, judo, taekwondo, kung fu, other)", Value = "Martial Arts (karate, judo, taekwondo, kung fu, other)" },
+                          new SelectListItem {Text = "Traveling", Value = "Traveling" },
+                          new SelectListItem {Text = "People Watching", Value = "People Watching" } },
+                         "Select Interest(s)")
+        </div>
+    </div>
+
+    //Deal Breakers
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.DealBreakers, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.DealBreakers, new List<SelectListItem>
+                        { new SelectListItem {Text = "Anger Issues", Value = "Anger Issues" },
+                          new SelectListItem {Text = "Abusive (verbal, physical, other)", Value = "Abusive (verbal, physical, other)"},
+                          new SelectListItem {Text = "Unfaithful/Cheaters", Value = "Unfaithful/Cheaters" },
+                          new SelectListItem {Text = "Smoking", Value = "Smoking" },
+                          new SelectListItem {Text = "NonSmoking", Value = "NonSmoking" },
+                          new SelectListItem {Text = "Illicit Drug Use", Value = "Illicit Drug Use" },
+                          new SelectListItem {Text = "Non-Illicit Drug Use", Value = "Non-Illicit Drug Use"},
+                          new SelectListItem {Text = "Marijuana Use/Friendly", Value = "Marijuana Use/Friendly" },
+                          new SelectListItem {Text = "Non-Marijuana Use/Non-Friendly", Value = "Non-Marijuana Use/Non-Friendly" },
+                          new SelectListItem {Text = "Has Pets", Value = "Has Pets" },
+                          new SelectListItem {Text = "Has No Pets", Value = "Has No Pets" },
+                          new SelectListItem {Text = "Wants Pets", Value = "Wants Pets" },
+                          new SelectListItem {Text = "Does Not Want Pets", Value = "Does Not Want Pets" },
+                          new SelectListItem {Text = "Racists/Bigots", Value = "Racists/Bigots" },
+                          new SelectListItem {Text = "Different Race/Ethnicity", Value = "Different Race/Ethnicity" },
+                          new SelectListItem {Text = "Same Race/Ethnicity", Value = "Same Race/Ethnicity" },
+                          new SelectListItem {Text = "Poor Hygiene/Foul Smelling", Value = "Poor Hygiene/Foul Smelling" },
+                          new SelectListItem {Text = "Alcoholics/Alcohol Problems", Value = "Alcoholics/Alcohol Problems" },
+                          new SelectListItem {Text = "Inattentive", Value = "Inattentive" },
+                          new SelectListItem {Text = "Unaffectionate", Value = "Unaffectionate" },
+                          new SelectListItem {Text = "Unromantic", Value = "Unromantic" },
+                          new SelectListItem {Text = "Sexually Transmitted Diseases (STD)", Value = "Sexually Transmitted Diseases (STD)" },
+                          new SelectListItem {Text = "No Loyalty", Value = "No Loyalty" },
+                          new SelectListItem {Text = "Dishonest", Value = "Dishonest" },
+                          new SelectListItem {Text = "Untrustworthy", Value = "Untrustworthy" },
+                          new SelectListItem {Text = "Laziness", Value = "Laziness" },
+                          new SelectListItem {Text = "Distance", Value = "Distance"},
+                          new SelectListItem {Text = "Low Sex Drive/Bad Sex", Value = "Low Sex Drive/Bad Sex" },
+                          new SelectListItem {Text = "Watching Too Much Television", Value = "Watching Too Much Television" },
+                          new SelectListItem {Text = "Watching Too Many Movies", Value = "Watching Too Many Movies" },
+                          new SelectListItem {Text = "Playing Video Games Too Long", Value = "Playing Video Games Too Long" },
+                          new SelectListItem {Text = "Has Kids", Value = "Has Kids"},
+                          new SelectListItem {Text = "Has No Kids", Value = "Has No Kids" },
+                          new SelectListItem {Text = "Wants Kids", Value = "Wants Kids" },
+                          new SelectListItem {Text = "Does Not Want Kids", Value = "Does Not Want Kids" },
+                          new SelectListItem {Text = "Stubborn", Value="Stubborn" },
+                          new SelectListItem {Text = "Greedy", Value = "Greedy" },
+                          new SelectListItem {Text = "No Sense of Humor", Value = "No Sense of Humor" },
+                          new SelectListItem {Text = "Too Quiet", Value = "Too Quiet"},
+                          new SelectListItem {Text = "Too Loud", Value = "Too Loud" },
+                          new SelectListItem {Text = "Uses Too Much Foul Language", Value = "Uses Too Much Foul Language" },
+                          new SelectListItem {Text = "Divas/Princesses", Value = "Divas/Princesses" },
+                          new SelectListItem {Text = "Jerks/Bad Boys", Value = "Jerks/Bad Boys" },
+                          new SelectListItem {Text = "Not Financially Responsible", Value = "Not Financially Responsible" },
+                          new SelectListItem {Text = "Cheap/Misers", Value = "Cheap/Misers" },
+                          new SelectListItem {Text = "Criminals (pedophiles, sex offenders, murderers, rapists, other crimes)", Value = "Criminals (pedophiles, sex offenders, murderers, rapists, other crimes)" },
+                          new SelectListItem {Text = "Relationship/Other Drama", Value = "Relationship/Other Drama" },
+                          new SelectListItem {Text = "Shady", Value = "Shady" },
+                          new SelectListItem {Text = "Manipulative", Value = "Manipulative" },
+                          new SelectListItem {Text = "Uncompromising", Value = "Uncompromising" },
+                          new SelectListItem {Text = "Emotionally Unavailable", Value = "Emotionally Unavailable"},
+                          new SelectListItem {Text = "Unemployed", Value = "Unemployed" },
+                          new SelectListItem {Text = "Not Empathetic", Value = "Not empathetic" },
+                          new SelectListItem {Text = "Does Not Listen", Value = "Does Not Listen" },
+                          new SelectListItem {Text = "Disrespectful", Value = "Disrespectful" },
+                          new SelectListItem {Text = "Unprofessional", Value = "Unprofessional" },
+                          new SelectListItem {Text = "Not Passionate", Value = "Not Passionate" },
+                          new SelectListItem {Text = "Not Compassionate", Value = "Not Compassionate" },
+                          new SelectListItem {Text = "Unfriendly", Value = "Unfriendly" },
+                          new SelectListItem {Text = "Discouraging", Value = "Discouraging" },
+                          new SelectListItem {Text = "Jealousy", Value = "Jealousy" },
+                          new SelectListItem {Text = "Does Not Share", Value = "Does Not Share" },
+                          new SelectListItem {Text = "Hurtful", Value = "Hurtful"},
+                          new SelectListItem {Text = "Inauthentic", Value = "Inauthentic" },
+                          new SelectListItem {Text = "Does Not Value Others' Opinions", Value = "Does Not Value Others' Opinions" },
+                          new SelectListItem {Text = "Close-Minded", Value = "Close-Minded" },
+                          new SelectListItem {Text = "Non-Religious", Value = "Non-Religious" },
+                          new SelectListItem {Text = "Too Religious", Value = "Too Religious" },
+                          new SelectListItem {Text = "Different Religions", Value = "Different Religions" },
+                          new SelectListItem {Text = "Same/Similar Religion", Value = "Same/Similar Religion" },
+                          new SelectListItem {Text = "No Filter", Value = "No Filter" },
+                          new SelectListItem {Text = "Different Political Views", Value = "Different Political Views" },
+                          new SelectListItem {Text = "Same/Similar Political Views", Value = "Same/Similar Political Views" } },
+                         "Select Dealbreaker(s)")
+        </div>
+    </div>
+
+    //City
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.City, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(bs => bs.City, new { placeholder = "City", @class = "form-control" })
+        </div>
+    </div>
+
+    //State
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.State, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.DropDownListFor(bs => bs.State, new List<SelectListItem>
+                        { new SelectListItem {Text = "Alabama", Value = "Alabama" },
+                          new SelectListItem {Text = "Alaska", Value = "Alaska"},
+                          new SelectListItem {Text = "Arizona", Value = "Arizona" },
+                          new SelectListItem {Text = "Arkansas", Value = "Arkansas" },
+                          new SelectListItem {Text = "California", Value = "California" },
+                          new SelectListItem {Text = "Colorado", Value = "Colorado" },
+                          new SelectListItem {Text = "Connecticut", Value = "Connecticut"},
+                          new SelectListItem {Text = "Delaware", Value = "Delaware" },
+                          new SelectListItem {Text = "Florida", Value = "Florida" },
+                          new SelectListItem {Text = "Georgia", Value = "Georgia" },
+                          new SelectListItem {Text = "Guam", Value = "Guam" },
+                          new SelectListItem {Text = "Hawaii", Value = "Hawaii" },
+                          new SelectListItem {Text = "Idaho", Value = "Idaho" },
+                          new SelectListItem {Text = "Illinois", Value = "Illinois" },
+                          new SelectListItem {Text = "Indiana", Value = "Indiana" },
+                          new SelectListItem {Text = "Iowa", Value = "Iowa" },
+                          new SelectListItem {Text = "Kansas", Value = "Kansas" },
+                          new SelectListItem {Text = "Kentucky", Value = "Kentucky" },
+                          new SelectListItem {Text = "Louisiana", Value = "Louisiana" },
+                          new SelectListItem {Text = "Maine", Value = "Maine" },
+                          new SelectListItem {Text = "Massachusetts", Value = "Massachusetts" },
+                          new SelectListItem {Text = "Michigan", Value = "Michigan" },
+                          new SelectListItem {Text = "Minnesota", Value = "Minnesota"},
+                          new SelectListItem {Text = "Mississippi", Value = "Mississippi" },
+                          new SelectListItem {Text = "Missouri", Value = "Missouri" },
+                          new SelectListItem {Text = "Montana", Value = "Montana" },
+                          new SelectListItem {Text = "Nebraska", Value = "Nebraska" },
+                          new SelectListItem {Text = "Nevada", Value = "Nevada"},
+                          new SelectListItem {Text = "New Hampshire", Value = "New Hampshire" },
+                          new SelectListItem {Text = "New Jersey", Value = "New Jersey" },
+                          new SelectListItem {Text = "New Mexico", Value = "New Mexico" },
+                          new SelectListItem {Text = "New York", Value = "New York" },
+                          new SelectListItem {Text = "North Carolina", Value = "North Carolina" },
+                          new SelectListItem {Text = "North Dakota", Value = "North Dakota" },
+                          new SelectListItem {Text = "Ohio", Value = "Ohio" },
+                          new SelectListItem {Text = "Oklahoma", Value = "Oklahoma" },
+                          new SelectListItem {Text = "Oregon", Value = "Oregon" },
+                          new SelectListItem {Text = "Pennsylvania", Value = "Pennsylvania" },
+                          new SelectListItem {Text = "Puerto Rico", Value = "Puerto Rico" },
+                          new SelectListItem {Text = "Rhode Island", Value = "Rhode Island" },
+                          new SelectListItem {Text = "South Carolina", Value = "South Carolina" },
+                          new SelectListItem {Text = "South Dakota", Value = "South Dakota" },
+                          new SelectListItem {Text = "Tennessee", Value = "Tennessee" },
+                          new SelectListItem {Text = "Texas", Value = "Texas" },
+                          new SelectListItem {Text = "Utah", Value = "Utah"},
+                          new SelectListItem {Text = "Vermont", Value = "Vermont" },
+                          new SelectListItem {Text = "Virginia", Value = "Virginia" },
+                          new SelectListItem {Text = "Virgin Islands", Value = "Virgin Islands" },
+                          new SelectListItem {Text = "Washington", Value = "Washington" },
+                          new SelectListItem {Text = "Washington, District of Columbia", Value = "Washington, District of Columbia" },
+                          new SelectListItem {Text = "West Virginia", Value = "West Virginia" },
+                          new SelectListItem {Text = "Wisconsin", Value = "Wisconsin" },
+                          new SelectListItem {Text = "Wyoming", Value = "Wyoming" },
+                          new SelectListItem {Text = "All States", Value = "All States" } },
+                         "Select State(s)")
+        </div>
+    </div>
+
+    //Zip Code
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.ZipCode, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(bs => bs.ZipCode, new { placeholder = "Zip Code", @class = "form-control" })
+        </div>
+    </div>
+
+    //Distance
+    <div class="form-group">
+        @Html.LabelFor(bs => bs.Distance, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(bs => bs.Distance, new { placeholder = "Distance", @class = "form-control" })
+        </div>
+    </div>
+
+    //Submit Button
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-8">
+            <input type="submit" class="btn btn-default" value="Search" />
+        </div>
+    </div>
+
+
+
+}
 

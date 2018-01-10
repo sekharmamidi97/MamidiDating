@@ -11,7 +11,7 @@
 <text class="registration">Your password must contain least 8 characters including an upper-case letter, a lower-case letter, a number, and a symbol.</text><br />
 <text class="registration">In order to protect members and to participate in this site, you <strong><em>MUST</em></strong> agree to a background check.</text><br />
 <text class="registration">You must enter a 4 digit year.</text><br />
-<text class="registration">You must fill out the message in the Recaptcha field.</text>
+@*<text class="registration">You must fill out the message in the Recaptcha field.</text>*@
 <hr />
 
 @using (Html.BeginForm("Registration", "Registration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
@@ -136,10 +136,10 @@
     <div class="form-group">
         @Html.LabelFor(r => r.BackgroundCheck, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.CheckBoxFor(r => r.IsBackgroundCheck)
-            @Html.LabelFor(r => r.IsBackgroundCheck, "Yes")<br />
-            @Html.CheckBoxFor(r => r.IsBackgroundCheck)
-            @Html.LabelFor(r => r.IsBackgroundCheck, "No")<br />
+            @Html.CheckBoxFor(r => r.IsYes)
+            @Html.LabelFor(r => r.IsYes, "Yes, I agree to a background check.")<br />
+            @*@Html.CheckBoxFor(r => r.IsNo)
+            @Html.LabelFor(r => r.IsNo, "No")<br />*@
             @Html.ValidationMessageFor(r => r.BackgroundCheck, "", new { @class = "text-danger" })
         </div>
     </div>

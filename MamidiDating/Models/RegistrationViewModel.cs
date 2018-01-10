@@ -50,13 +50,14 @@ namespace MamidiDating.Models
         [Required(ErrorMessage = "You must be at least 18 years old.")]
         [Display(Name = "Age")]
         [Range(18, 120)]
-        public int Age { get; set; }
+        public string Age { get; set; }
 
         [Required(ErrorMessage = "You must agree to a Background Check.")]
         [Display(Name = "Background Check")]
         public string BackgroundCheck { get; set; }
-        public bool IsBackgroundCheck { get; set; }
-
-        public string Salt { get; set; }
+        //public bool IsBackgroundCheck { get; set; }
+        public bool IsYes { get; set; }
+        //public bool IsNo { get; set; }
+        
     }
 }

@@ -23,7 +23,7 @@
 
 /*Contact Page*/
 
-.contact {
+#contact {
     color: red;
     font-weight: bold;
 }
@@ -62,4 +62,22 @@
     margin: auto;
     border-radius: 10px;
 
+}
+
+/*validation helpers*/
+.field-validation-error {
+    color: red;
+    font-weight: bold;
+}
+/*Basic Search Page*/
+#basic {
+    color: red;
+    font-weight: bold;
+}
+
+
+/*Advanced Search Page*/
+#advanced {
+    color: red;
+    font-weight: bold;
 }

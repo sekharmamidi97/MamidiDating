@@ -18,22 +18,15 @@ namespace MamidiDating.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "You must include your username.")]
-        [Display(Name = "User Name")]
-        public string Username { get; set; }
-
         [Required(ErrorMessage = "You must include your email address.")]
         [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
 
-        [Required(ErrorMessage = "You must select a contact reason.")]
+        [Required(ErrorMessage = "You must include a reason for contacting.")]
         [Display(Name = "Contact Reason")]
         public string ContactReason { get; set; }
 
-        [Display(Name = "If other, please specify")]
-        public string OtherSpecified { get; set; }
-
-        [Required(ErrorMessage = "The Message field is required.")]
+        [Required(ErrorMessage = "You must include a message.")]
         [Display(Name = "Message")]
         public string Message { get; set; }
     }

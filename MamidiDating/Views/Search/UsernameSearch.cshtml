@@ -1,8 +1,27 @@
-﻿
+﻿@model MamidiDating.Models.UsernameSearchViewModel
 @{
     ViewBag.Title = "UsernameSearch";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UsernameSearch</h2>
+<h1>User Name Search</h1>
+<hr />
+@using (Html.BeginForm("Search by User Name", "Search", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(un => un.Username, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(un => un.Username, new { placeholder = "User Name", @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-8">
+            <input type="submit" class="btn btn-default" value="Search By User Name" />
+        </div>
+    </div>
+    <hr />
+    <p>
+        @Html.ActionLink("Home", "Index", "Home")
+    </p>
+}
 
