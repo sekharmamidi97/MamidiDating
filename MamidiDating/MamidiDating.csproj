@@ -178,8 +178,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\FAQ.cshtml" />
-    <Content Include="Views\Registration\Registration.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -189,6 +187,8 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MamidiDatingController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\NewUserController.cs" />
+    <Compile Include="Controllers\RegisteredUserController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\UserProfileController.cs" />
@@ -197,10 +197,12 @@
     <Compile Include="DAL\IContactDAL.cs" />
     <Compile Include="DAL\ILoginDAL.cs" />
     <Compile Include="DAL\IMessageDAL.cs" />
+    <Compile Include="DAL\INewRegisteredUserDAL.cs" />
     <Compile Include="DAL\IRegistrationDAL.cs" />
     <Compile Include="DAL\IUserProfileDAL.cs" />
     <Compile Include="DAL\LoginSQLDAL.cs" />
     <Compile Include="DAL\MessageSQLDAL.cs" />
+    <Compile Include="DAL\NewRegisteredUserDAL.cs" />
     <Compile Include="DAL\RegistrationSQLDAL.cs" />
     <Compile Include="DAL\UserProfileSQLDAL.cs" />
     <Compile Include="Global.asax.cs">
@@ -210,9 +212,9 @@
     <Compile Include="Models\BasicSearchViewModel.cs" />
     <Compile Include="Models\ContactViewModel.cs" />
     <Compile Include="Models\ForgotPasswordViewModel.cs" />
-    <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\MessageViewModel.cs" />
-    <Compile Include="Models\RegistrationViewModel.cs" />
+    <Compile Include="Models\NewUserViewModel.cs" />
+    <Compile Include="Models\RegisteredUserViewModel.cs" />
     <Compile Include="Models\UsernameSearchViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -225,7 +227,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
-    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Views\RegisteredUser\ForgotPassword.cshtml" />
     <Content Include="Views\Contact\Contact.cshtml" />
     <Content Include="Views\Contact\Thanks.cshtml" />
     <Content Include="Views\Message\Message.cshtml" />
@@ -234,6 +236,8 @@
     <Content Include="Views\Search\AdvancedSearch.cshtml" />
     <Content Include="Views\Search\UsernameSearch.cshtml" />
     <Content Include="Views\UserProfile\UserProfile.cshtml" />
+    <Content Include="Views\NewUser\NewUser.cshtml" />
+    <Content Include="Views\RegisteredUser\RegisteredUser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

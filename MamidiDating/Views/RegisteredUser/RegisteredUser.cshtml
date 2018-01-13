@@ -1,0 +1,44 @@
+﻿@model MamidiDating.Models.RegisteredUserViewModel
+@{
+    ViewBag.Title = "RegisteredUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registered User Login </h1>
+<text id="login">You must use your username and password to login.</text>
+<hr />
+
+@using (Html.BeginForm("RegisteredUser", "RegisteredUser", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(ru => ru.Username, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(ru => ru.Username, new { placeholder = "User Name", @class = "form-control" })
+            @Html.ValidationMessageFor(ru => ru.Username, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(ru => ru.Password, new { @class = "col-md-2 control-label" })
+        <div class="col-md-8">
+            @Html.TextBoxFor(ru => ru.Password, new { placeholder = "Password", @class = "form-control" })
+            @Html.ValidationMessageFor(ru => ru.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <div class="checkbox">
+                @Html.CheckBoxFor(ru => ru.RememberMe)
+                @Html.LabelFor(ru => ru.RememberMe)
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Log In" />
+        </div>
+    </div>
+    <hr />
+    <p>
+        <b>@Html.ActionLink("Forgot your password?", "ForgotPassword", "RegisteredUser")</b>
+    </p>
+}

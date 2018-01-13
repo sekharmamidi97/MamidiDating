@@ -6,11 +6,10 @@ using System.Web;
 
 namespace MamidiDating.Models
 {
-    public class LoginViewModel
+    public class RegisteredUserViewModel
     {
-        public int LoginId { get; set; }
-        public int RegistrationId { get; set; }
-
+        public int RegisteredUserId { get; set; }
+        
         [Required(ErrorMessage = "Your username is required.")]
         [Display(Name = "Username")]
         public string Username { get; set; }

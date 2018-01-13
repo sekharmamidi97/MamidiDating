@@ -1,67 +1,66 @@
-﻿@model MamidiDating.Models.RegistrationViewModel
-@using Recaptcha.Web.Mvc;
+﻿@model MamidiDating.Models.NewUserViewModel
 @{
-    ViewBag.Title = "Registration";
+    ViewBag.Title = "NewUser";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Registration Page</h2>
+<h1>New User Registration</h1>
 
 <text class="registration">You must be at least 18 years old to use this site.</text><br />
 <text class="registration">Your password must contain least 8 characters including an upper-case letter, a lower-case letter, a number, and a symbol.</text><br />
-<text class="registration">In order to protect members and to participate in this site, you <strong><em>MUST</em></strong> agree to a background check.</text><br />
+@*<text class="registration">In order to protect members and to participate in this site, you <strong><em>MUST</em></strong> agree to a background check.</text><br />*@
 <text class="registration">You must enter a 4 digit year.</text><br />
 @*<text class="registration">You must fill out the message in the Recaptcha field.</text>*@
 <hr />
 
-@using (Html.BeginForm("Registration", "Registration", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("NewUser", "NewUser", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="form-group">
-        @Html.LabelFor(r => r.FirstName, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.FirstName, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(r => r.FirstName, new { placeholder = "First Name", @class = "form-control" })
-            @Html.ValidationMessageFor(r => r.FirstName, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(nu => nu.FirstName, new { placeholder = "First Name", @class = "form-control" })
+            @Html.ValidationMessageFor(nu => nu.FirstName, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.LastName, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.LastName, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(r => r.LastName, new { placeholder = "Last Name", @class = "form-control" })
-            @Html.ValidationMessageFor(r => r.LastName, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(nu => nu.LastName, new { placeholder = "Last Name", @class = "form-control" })
+            @Html.ValidationMessageFor(nu => nu.LastName, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.Username, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.Username, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(r => r.Username, new { placeholder = "User Name", @class = "form-control" })
-            @Html.ValidationMessageFor(r => r.Username, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(nu => nu.Username, new { placeholder = "User Name", @class = "form-control" })
+            @Html.ValidationMessageFor(nu => nu.Username, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.EmailAddress, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.EmailAddress, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(r => r.EmailAddress, new { placeholder = "Email Address", @class = "form-control" })
-            @Html.ValidationMessageFor(r => r.EmailAddress, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(nu => nu.EmailAddress, new { placeholder = "Email Address", @class = "form-control" })
+            @Html.ValidationMessageFor(nu => nu.EmailAddress, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.Password, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(r => r.Password, new { placeholder = "Password", @class = "form-control" })
-            @Html.ValidationMessageFor(r => r.Password, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(nu => nu.Password, new { placeholder = "Password", @class = "form-control" })
+            @Html.ValidationMessageFor(nu => nu.Password, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.ConfirmPassword, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(r => r.ConfirmPassword, new { placeholder = "Confirm Password", @class = "form-control" })
-            @Html.ValidationMessageFor(r => r.ConfirmPassword, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(nu => nu.ConfirmPassword, new { placeholder = "Confirm Password", @class = "form-control" })
+            @Html.ValidationMessageFor(nu => nu.ConfirmPassword, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.Month, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.Month, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.DropDownListFor(r => r.Month, new List<SelectListItem>
+            @Html.DropDownListFor(nu => nu.Month, new List<SelectListItem>
        {
            new SelectListItem {Text="January", Value="January" },
            new SelectListItem {Text="February", Value="February" },
@@ -75,14 +74,14 @@
            new SelectListItem {Text="October", Value="October" },
            new SelectListItem {Text="November", Value="November" },
            new SelectListItem {Text="December", Value="December" } },
-           "Select Birth Month")<br />
-            @Html.ValidationMessageFor(r => r.Month, "", new { @class = "text-danger" })
+        "Select Birth Month")<br />
+            @Html.ValidationMessageFor(nu => nu.Month, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.Day, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.Day, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(r => r.Day, new List<SelectListItem>
+            @Html.DropDownListFor(nu => nu.Day, new List<SelectListItem>
        {
            new SelectListItem {Text="1", Value = "1" },
            new SelectListItem {Text="2", Value = "2" },
@@ -115,38 +114,44 @@
            new SelectListItem {Text="29", Value="29" },
            new SelectListItem {Text="30", Value ="30"},
            new SelectListItem {Text="31", Value="31" } },
-           "Select Day")<br />
-            @Html.ValidationMessageFor(r => r.Day, "", new { @class = "text-danger" })
+        "Select Day")<br />
+            @Html.ValidationMessageFor(nu => nu.Day, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.Year, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.Year, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(r => r.Year, new { placeholder = "Year", @class = "form-control" })
-            @Html.ValidationMessageFor(r => r.Year, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(nu => nu.Year, new { placeholder = "Year", @class = "form-control" })
+            @Html.ValidationMessageFor(nu => nu.Year, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(r => r.Age, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(nu => nu.Age, new { @class = "col-md-2 control-label" })
         <div class="col-md-8">
-            @Html.TextBoxFor(r => r.Age, new { placeholder = "Age", @class = "form-control" })
-            @Html.ValidationMessageFor(r => r.Age, "", new { @class = "text-danger" })
+            @Html.TextBoxFor(nu => nu.Age, new { placeholder = "Age", @class = "form-control" })
+            @Html.ValidationMessageFor(nu => nu.Age, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.LabelFor(r => r.BackgroundCheck, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.CheckBoxFor(r => r.IsYes)
-            @Html.LabelFor(r => r.IsYes, "Yes, I agree to a background check.")<br />
+            @Html.LabelFor(r => r.IsYes, "Yes, I agree to a background check.")<br />*@
             @*@Html.CheckBoxFor(r => r.IsNo)
-            @Html.LabelFor(r => r.IsNo, "No")<br />*@
-            @Html.ValidationMessageFor(r => r.BackgroundCheck, "", new { @class = "text-danger" })
-        </div>
-    </div>
+                @Html.LabelFor(r => r.IsNo, "No")<br />*@
+            @*@Html.ValidationMessageFor(r => r.BackgroundCheck, "", new { @class = "text-danger" })
+        </div>*@
+    @*</div>*@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-8">
             <input type="submit" class="btn btn-default" value="Register" />
         </div>
     </div>
+    <hr />
+    <p>
+        <b>@Html.ActionLink("Back to Home", "Index", "Home")</b>
+    </p>
+
 }
+
 

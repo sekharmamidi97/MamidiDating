@@ -1,23 +1,17 @@
-Create table Registration
+Create table NewRegisteredUser
 (
-registrationId int identity(1,1) not null primary key,
-firstName varchar(100) not null,
-lastName varchar(100) not null,
-emailAddress varchar(50) not null,
-month varchar(25) not null,
-day varchar(5) not null,
-year varchar(10) not null,
-age int not null, -- altered datatype to varchar
-isBackgroundCheck bit not null,
-);
+  registeredUserId int identity(1,1) not null primary key,
+  firstName varchar(100) not null,
+  lastName varchar(100) not null,
+  username varchar(100) not null,
+  emailAddress varchar(50) not null,
+  password varchar(50) not null,
+  month varchar(25) not null,
+  day varchar(5) not null,
+  year varchar(10) not null,
+  age varchar(5) not null,
+  salt varchar(100) not null
 
-Create table Login
-(
-loginId int identity(1,1) not null primary key,
-registrationId int not null,
-username varchar(100) not null,
-password varchar(50) not null,
-salt varchar(100) not null
 );
 
 Create table Message
@@ -48,3 +42,5 @@ Drop column isBackgroundCheck;
 Alter table Registration
 Add isYes bit not null;
 
+Drop table Registration;
+Drop table Login;

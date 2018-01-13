@@ -6,22 +6,21 @@ using System.Web;
 
 namespace MamidiDating.Models
 {
-    public class RegistrationViewModel
+    public class NewUserViewModel
     {
-        public int RegistrationId { get; set; }
-
-        [Required]
+        [Required(ErrorMessage ="Your first name is required.")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Your last name is required.")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Required(ErrorMessage ="You must create a username.")]
         [Display(Name = "User Name")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Your email address is required.")]
         [Display(Name = "Email Address")]
         public string EmailAddress { get; set; }
 
@@ -52,12 +51,12 @@ namespace MamidiDating.Models
         [Range(18, 120)]
         public string Age { get; set; }
 
-        [Required(ErrorMessage = "You must agree to a Background Check.")]
-        [Display(Name = "Background Check")]
-        public string BackgroundCheck { get; set; }
+        //[Required(ErrorMessage = "You must agree to a Background Check.")]
+        //[Display(Name = "Background Check")]
+        //public string BackgroundCheck { get; set; }
         //public bool IsBackgroundCheck { get; set; }
-        public bool IsYes { get; set; }
+        //public bool IsYes { get; set; }
         //public bool IsNo { get; set; }
-        
+
     }
 }
