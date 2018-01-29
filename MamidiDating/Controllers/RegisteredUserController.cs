@@ -20,5 +20,16 @@ namespace MamidiDating.Controllers
         {
             return View("RegisteredUser");
         }
+
+        public ActionResult ForgotPassword()
+        {
+            return View("ForgotPassword");
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel passwordModel)
+        {
+            return View("ForgotPassword");
+        }
     }
 }

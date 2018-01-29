@@ -1,17 +1,17 @@
-Create table NewRegisteredUser
+Create table RegisteredUser
 (
-  registeredUserId int identity(1,1) not null primary key,
-  firstName varchar(100) not null,
-  lastName varchar(100) not null,
-  username varchar(100) not null,
-  emailAddress varchar(50) not null,
-  password varchar(50) not null,
-  month varchar(25) not null,
-  day varchar(5) not null,
-  year varchar(10) not null,
-  age varchar(5) not null,
-  salt varchar(100) not null
-
+	registeredUserId int identity(1,1) not null primary key,
+	username varchar(100) not null,
+	password varchar(50) not null,
+    salt varchar(100) not null,
+	firstName varchar(100) not null,
+    lastName varchar(100) not null,
+	emailAddress varchar(50) not null,
+	month varchar(25) not null,
+    day varchar(5) not null,
+    year varchar(10) not null,
+    age varchar(5) not null,
+	isYes bit not null
 );
 
 Create table Message
@@ -44,3 +44,4 @@ Add isYes bit not null;
 
 Drop table Registration;
 Drop table Login;
+Drop table NewRegisteredUser;

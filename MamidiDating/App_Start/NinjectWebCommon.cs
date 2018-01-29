@@ -66,8 +66,10 @@ namespace MamidiDating.App_Start
         ///<param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<ILoginDAL>().To<LoginSQLDAL>();
-            kernel.Bind<IRegistrationDAL>().To<RegistrationSQLDAL>();
+            kernel.Bind<IRegisteredUserDAL>().To<RegisteredUserSQLDAL>();
+            kernel.Bind<IContactDAL>().To<ContactSQLDAL>();
+            kernel.Bind<IMessageDAL>().To<MessageSQLDAL>();
+            
         }
     }
 }

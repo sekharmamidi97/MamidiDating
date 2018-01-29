@@ -24,14 +24,14 @@
             @Html.ValidationMessageFor(ru => ru.Password, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div class="form-group">
+    @*<div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <div class="checkbox">
                 @Html.CheckBoxFor(ru => ru.RememberMe)
                 @Html.LabelFor(ru => ru.RememberMe)
             </div>
         </div>
-    </div>
+    </div>*@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Log In" />

@@ -184,7 +184,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MamidiDatingController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\NewUserController.cs" />
@@ -195,15 +194,12 @@
     <Compile Include="Crypto\HashProvider.cs" />
     <Compile Include="DAL\ContactSQLDAL.cs" />
     <Compile Include="DAL\IContactDAL.cs" />
-    <Compile Include="DAL\ILoginDAL.cs" />
     <Compile Include="DAL\IMessageDAL.cs" />
-    <Compile Include="DAL\INewRegisteredUserDAL.cs" />
+    <Compile Include="DAL\IRegisteredUserDAL.cs" />
     <Compile Include="DAL\IRegistrationDAL.cs" />
     <Compile Include="DAL\IUserProfileDAL.cs" />
-    <Compile Include="DAL\LoginSQLDAL.cs" />
     <Compile Include="DAL\MessageSQLDAL.cs" />
-    <Compile Include="DAL\NewRegisteredUserDAL.cs" />
-    <Compile Include="DAL\RegistrationSQLDAL.cs" />
+    <Compile Include="DAL\RegisteredUserSQLDAL.cs" />
     <Compile Include="DAL\UserProfileSQLDAL.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

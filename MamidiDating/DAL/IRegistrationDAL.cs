@@ -9,7 +9,7 @@ namespace MamidiDating.DAL
 {
     public interface IRegistrationDAL
     {
-        bool AddRegistrationInfo(RegistrationViewModel registration);
-        RegistrationViewModel GetRegistrationInformationById(int registrationId);
+        //bool AddRegistrationInfo(RegistrationViewModel registration);
+        //RegistrationViewModel GetRegistrationInformationById(int registrationId);
     }
 }

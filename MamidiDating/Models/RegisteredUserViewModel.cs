@@ -9,7 +9,7 @@ namespace MamidiDating.Models
     public class RegisteredUserViewModel
     {
         public int RegisteredUserId { get; set; }
-        
+
         [Required(ErrorMessage = "Your username is required.")]
         [Display(Name = "Username")]
         public string Username { get; set; }
@@ -18,9 +18,10 @@ namespace MamidiDating.Models
         [Display(Name = "Password")]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me")]
-        public bool RememberMe { get; set; }
+        //[Display(Name = "Remember me")]
+        //public bool RememberMe { get; set; }
 
         public string Salt { get; set; }
+
     }
 }

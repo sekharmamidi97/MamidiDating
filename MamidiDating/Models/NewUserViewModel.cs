@@ -51,12 +51,13 @@ namespace MamidiDating.Models
         [Range(18, 120)]
         public string Age { get; set; }
 
-        //[Required(ErrorMessage = "You must agree to a Background Check.")]
-        //[Display(Name = "Background Check")]
-        //public string BackgroundCheck { get; set; }
+        [Required(ErrorMessage = "You must agree to a Background Check.")]
+        [Display(Name = "Background Check")]
+        public string BackgroundCheck { get; set; }
         //public bool IsBackgroundCheck { get; set; }
-        //public bool IsYes { get; set; }
-        //public bool IsNo { get; set; }
+        public bool IsYes { get; set; }
+        public bool IsNo { get; set; }
+
 
     }
 }
